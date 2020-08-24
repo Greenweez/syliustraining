@@ -33,3 +33,19 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\Contexts\ChannelContext:
+        arguments:
+            - '@request_stack'
+            - '@sylius.repository.channel'
+        tags:
+            - { name: sylius.context.channel }
+
+    App\Shipping\Calculator\WeightBasedShippingCalculator:
+        tags:
+            - {
+                  name: sylius.shipping_calculator
+                  label: Weight based calculator
+                  calculator: weight_based_calculator
+                  form_type: App\Form\Type\WeightBasedShippingCalculatorConfiguration
+            }
