@@ -1,0 +1,9 @@
+sylius_grid:
+    grids:
+        app_supplier:
+            driver:
+                options:
+                    class: App\Entity\Supplier
+            fields:
+                id:
+                    type: string
