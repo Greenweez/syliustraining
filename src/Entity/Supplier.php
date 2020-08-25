@@ -17,16 +17,24 @@ class Supplier implements ResourceInterface
      * @ORM\Column(type="integer")
      */
     private $id;
+
     /**
      * @var string|null
      * @ORM\Column(type="string")
      */
     private $name;
+
     /**
      * @var string|null
      * @ORM\Column(type="string")
      */
     private $email;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $status = 'new';
 
     public function getId(): ?int
     {
@@ -51,5 +59,15 @@ class Supplier implements ResourceInterface
     public function setEmail(?string $email): void
     {
         $this->email = $email;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->status = $status;
     }
 }

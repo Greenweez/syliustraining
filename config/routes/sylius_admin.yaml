@@ -11,3 +11,15 @@ app_supplier_admin:
         grid: app_supplier
     type: sylius.resource
     prefix: /admin
+
+app_admin_supplier_trust:
+    path: /admin/suppliers/{id}/trust
+    methods: [PATCH, PUT]
+    defaults:
+        _controller: app.controller.supplier::applyStateMachineTransitionAction
+        _sylius:
+            section: admin
+            redirect: referer
+            state_machine:
+                graph: app_supplier
+                transition: trust

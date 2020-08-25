@@ -26,13 +26,17 @@ sylius_grid:
                     type: string
                     label: sylius.ui.email
                     sortable: ~
+                status:
+                    type: string
+                    label: sylius.ui.status
+                    sortable: ~
             filters:
                 search:
                     type: string
                     label: sylius.ui.search
                     options:
                         fields: ['name', 'email']
-                    default_value: first
+#                    default_value: first
                 another_search:
                     type: select
                     label: sylius.ui.another_search
@@ -51,6 +55,17 @@ sylius_grid:
                         type: update
                     delete:
                         type: delete
+                    trust:
+                        type: apply_transition
+                        label: app.ui.trust
+                        options:
+                            transition: trust
+                            graph: app_supplier
+                            link:
+                                route: app_admin_supplier_trust
+                                parameters:
+                                  id: resource.id
+
 #        yeasterday_order_grid:
 #            driver:
 #                options:
