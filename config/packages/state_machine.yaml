@@ -9,5 +9,11 @@ winzou_state_machine:
             trusted: ~
         transitions:
             trust:
-                from: [new]
+                from: [new, trusted]
                 to: trusted
+        callbacks:
+            after:
+                send_trust_email:
+                    on: ['trust']
+                    do: ['@App\Sender\TrustedSupplierEmailSender', 'send']
+                    args: ['object']

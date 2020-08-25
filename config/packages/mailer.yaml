@@ -1,0 +1,4 @@
+sylius_mailer:
+    emails:
+        trust_supplier:
+            template: 'admin/Emails/trustSupplier.html.twig'

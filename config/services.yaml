@@ -53,3 +53,8 @@ services:
     App\EventListener\AdminMenuListener:
         tags:
             - { name: kernel.event_listener, event: 'sylius.menu.admin.main', method: addSupplierToMenu }
+
+    App\Sender\TrustedSupplierEmailSender:
+        public: true
+        arguments:
+            - '@sylius.email_sender'
