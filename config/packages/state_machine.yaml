@@ -17,3 +17,8 @@ winzou_state_machine:
                     on: ['trust']
                     do: ['@App\Sender\TrustedSupplierEmailSender', 'send']
                     args: ['object']
+    sylius_order_checkout:
+        transitions:
+            address_and_select_shipment:
+                from: [cart, addressed, shipping_selected, shipping_skipped, payment_selected, payment_skipped]
+                to: shipping_selected
