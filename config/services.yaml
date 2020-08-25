@@ -81,3 +81,12 @@ services:
     App\Fixtures\Factory\SupplierExampleFactory:
         arguments:
             - '@app.factory.supplier'
+
+    App\Attribute\IconAttributeType:
+        tags:
+            - {
+                name: sylius.attribute.type
+                label: Icon
+                attribute_type: icon
+                form_type: App\Form\Type\IconAttributeTypeType
+            }
