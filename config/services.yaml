@@ -66,3 +66,7 @@ services:
                 event: 'app.supplier.post_trust',
                 method: __invoke
             }
+
+    App\Form\Type\SupplierType:
+        arguments:
+            - '%app.model.supplier.class%'
