@@ -90,3 +90,13 @@ services:
                 attribute_type: icon
                 form_type: App\Form\Type\IconAttributeTypeType
             }
+
+    App\EventListener\AcceptReviewFromTrustedCustomerListener:
+        arguments:
+            - '@sm.factory'
+        tags:
+            - {
+                name: kernel.event_listener,
+                event: 'sylius.product_review.pre_create',
+                method: __invoke
+            }
