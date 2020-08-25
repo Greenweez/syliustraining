@@ -70,3 +70,14 @@ services:
     App\Form\Type\SupplierType:
         arguments:
             - '%app.model.supplier.class%'
+
+    App\Fixtures\SupplierFixture:
+        arguments:
+            - '@app.manager.supplier'
+            - '@App\Fixtures\Factory\SupplierExampleFactory'
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    App\Fixtures\Factory\SupplierExampleFactory:
+        arguments:
+            - '@app.factory.supplier'
