@@ -1,0 +1,4 @@
+app:
+    ui:
+        id: Identifier
+        suppliers: Suppliers

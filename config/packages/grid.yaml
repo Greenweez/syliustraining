@@ -1,9 +1,59 @@
 sylius_grid:
+    templates:
+        action:
+            createWithModal: "admin/Grid/Action/createWithModal.html.twig"
     grids:
         app_supplier:
             driver:
                 options:
                     class: App\Entity\Supplier
+            sorting:
+                name: desc
             fields:
                 id:
                     type: string
+                    label: app.ui.id
+                    sortable: ~
+                    enabled: false
+                name:
+                    type: twig
+                    label: sylius.ui.name
+                    path: .
+                    sortable: email
+                    options:
+                        template: "admin/Grid/Field/name.html.twig"
+                email:
+                    type: string
+                    label: sylius.ui.email
+                    sortable: ~
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: ['name', 'email']
+                    default_value: first
+                another_search:
+                    type: select
+                    label: sylius.ui.another_search
+                    options:
+                        field: 'email'
+                    form_options:
+                        choices:
+                            zew: 'zew'
+                            sec: 'sec'
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+#        yeasterday_order_grid:
+#            driver:
+#                options:
+#                    repository:
+#                        method: createListQueryBuilder
+#            extend: sylius_admin_order
