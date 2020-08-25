@@ -18,6 +18,7 @@ app_admin_supplier_trust:
     defaults:
         _controller: app.controller.supplier::applyStateMachineTransitionAction
         _sylius:
+            event: trust
             section: admin
             redirect: referer
             state_machine:

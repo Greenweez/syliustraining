@@ -58,3 +58,11 @@ services:
         public: true
         arguments:
             - '@sylius.email_sender'
+
+    App\EventListener\SendEmailToTrustedSupplier:
+        tags:
+            - {
+                name: kernel.event_listener,
+                event: 'app.supplier.post_trust',
+                method: __invoke
+            }

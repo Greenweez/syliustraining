@@ -7,7 +7,7 @@ namespace App\Sender;
 use App\Entity\Supplier;
 use Sylius\Component\Mailer\Sender\SenderInterface;
 
-final class TrustedSupplierEmailSender
+final class TrustedSupplierEmailSender implements TrustedSupplierEmailSenderInterface
 {
     /**
      * @var SenderInterface
