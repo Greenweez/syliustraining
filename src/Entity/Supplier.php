@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
@@ -35,6 +37,17 @@ class Supplier implements ResourceInterface
      * @ORM\Column(type="string")
      */
     private $status = 'new';
+
+    /**
+     * @var Collection
+     * @ORM\OneToMany (targetEntity="App\Entity\Product\Product", mappedBy="supplier")
+     */
+    private $products;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
