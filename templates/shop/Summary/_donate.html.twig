@@ -1,0 +1,11 @@
+<form action="{{ path('app_add_donation') }}" method="post">
+    <label>
+        Amount of donation:
+        <input type="number" name="amount"/>
+    </label>
+    <button type="submit">Donate!</button>
+</form>
+
+{% for adjustment in cart.getAdjustments('DONATION_ADJUSTMENT') %}
+    Adjustment {{ adjustment.label }}, amount {{ adjustment.amount }}, neutral? {{ adjustment.neutral }} <br/>
+{% endfor %}

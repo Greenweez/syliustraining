@@ -1,0 +1,6 @@
+sylius_ui:
+    events:
+        sylius.shop.cart.coupon:
+            blocks:
+                donation:
+                    template: 'shop/Summary/_donate.html.twig'
