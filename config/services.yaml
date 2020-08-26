@@ -120,3 +120,12 @@ services:
             - ['DONATION_ADJUSTMENT']
         tags:
             - { name: sylius.order_processor, priority: 55 }
+
+    App\Promotion\BirthdayPromotionRule:
+        tags:
+            - {
+                name: sylius.promotion_rule_checker
+                label: Birthday
+                form_type: Symfony\Component\Form\Extension\Core\Type\FormType
+                type: birthday
+            }
