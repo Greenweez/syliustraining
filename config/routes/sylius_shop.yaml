@@ -33,3 +33,9 @@ sylius_shop_checkout_address:
             state_machine:
                 graph: sylius_order_checkout
                 transition: address_and_select_shipment
+
+app_one_click_checkout:
+    path: /{_locale}/buy
+    methods: [GET, POST]
+    defaults:
+        _controller: App\Controller\OneClickCheckoutAction

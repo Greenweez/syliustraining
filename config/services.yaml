@@ -100,3 +100,8 @@ services:
                 event: 'sylius.product_review.pre_create',
                 method: __invoke
             }
+
+    App\Controller\OneClickCheckoutAction:
+        public: true
+        bind:
+            $cartItemFactory: '@sylius.factory.order_item'
