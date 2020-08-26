@@ -105,3 +105,4 @@ services:
         public: true
         bind:
             $cartItemFactory: '@sylius.factory.order_item'
+            $stateMachineFactory: '@sm.factory'
