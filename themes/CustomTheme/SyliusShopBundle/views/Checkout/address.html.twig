@@ -17,6 +17,8 @@
                     {% include '@SyliusShop/Checkout/Address/_form.html.twig' %}
                     <div class="ui hidden divider"></div>
                     {% include '@SyliusShop/Checkout/SelectShipping/_form.html.twig' %}
+                    {{ form_row(form._token) }}
+
                     <div class="ui hidden divider"></div>
 
                     {{ sylius_template_event('sylius.shop.checkout.address.before_navigation', {'order': order}) }}

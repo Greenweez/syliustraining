@@ -13,4 +13,19 @@ use Sylius\Component\Core\Model\Shipment as BaseShipment;
  */
 class Shipment extends BaseShipment
 {
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $pickupTime;
+
+    public function getPickupTime(): ?string
+    {
+        return $this->pickupTime;
+    }
+
+    public function setPickupTime(?string $pickupTime): void
+    {
+        $this->pickupTime = $pickupTime;
+    }
 }
