@@ -22,3 +22,10 @@ winzou_state_machine:
             address_and_select_shipment:
                 from: [cart, addressed, shipping_selected, shipping_skipped, payment_selected, payment_skipped]
                 to: shipping_selected
+    sylius_shipment:
+        callbacks:
+            after:
+                app_assign_tracking_code:
+                    on: ["ship"]
+                    do: ["@App\\Assigner\\TrackingCodeAssigner", "assignTrackingCode"]
+                    args: ["object"]
