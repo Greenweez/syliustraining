@@ -109,3 +109,14 @@ services:
 
     App\Assigner\TrackingCodeAssigner:
         public: true
+
+    App\OrderProcessing\PaymentFeeProcessor:
+        tags:
+            - { name: sylius.order_processor, priority: 25 }
+
+    app.order_processing.order_adjustments_clearer:
+        class: Sylius\Component\Core\OrderProcessing\OrderAdjustmentsClearer
+        arguments:
+            - ['DONATION_ADJUSTMENT']
+        tags:
+            - { name: sylius.order_processor, priority: 55 }
