@@ -1,0 +1,8 @@
+{
+  "name": "app/custom-theme",
+  "extra": {
+    "sylius-theme": {
+      "title": "Custom Theme"
+    }
+  }
+}
