@@ -1,0 +1,32 @@
+sylius_shop_checkout_address:
+    path: /checkout/address
+    methods: [GET, PUT]
+    defaults:
+        _controller: sylius.controller.order:updateAction
+        _sylius:
+            event: address
+            flash: false
+            template: "@SyliusShop/Checkout/address.html.twig"
+            form:
+                type: Sylius\Bundle\CoreBundle\Form\Type\Checkout\AddressType
+                options:
+                    customer: expr:service('sylius.context.customer').getCustomer()
+            repository:
+                method: findCartForAddressing
+                arguments:
+                    - "expr:service('sylius.context.cart').getCart().getId()"
+            state_machine:
+                graph: sylius_order_checkout
+                transition: address_and_select_shipment
+
+app_one_click_checkout:
+    path: /buy
+    methods: [GET, POST]
+    defaults:
+        _controller: App\Controller\OneClickCheckoutAction
+
+app_add_donation:
+    path: /donate
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\DonateAction
