@@ -129,3 +129,8 @@ services:
                 form_type: Symfony\Component\Form\Extension\Core\Type\FormType
                 type: birthday
             }
+
+    App\OrderProcessing\OrderTaxesProcessor:
+        decorates: sylius.order_processing.order_taxes_processor
+        arguments:
+            - '@App\OrderProcessing\OrderTaxesProcessor.inner'

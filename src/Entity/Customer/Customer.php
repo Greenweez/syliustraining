@@ -13,4 +13,19 @@ use Sylius\Component\Core\Model\Customer as BaseCustomer;
  */
 class Customer extends BaseCustomer
 {
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $taxNumber;
+
+    public function getTaxNumber(): ?string
+    {
+        return $this->taxNumber;
+    }
+
+    public function setTaxNumber(?string $taxNumber): void
+    {
+        $this->taxNumber = $taxNumber;
+    }
 }
